@@ -11,7 +11,7 @@ myModule.controller('findbusController',function($scope,$http,$compile){
     $scope.findbuses = function() { 
         $scope.user =  $http({
               method: 'GET',
-              url: `http://127.0.0.1:3000/api/buses/availableBuses?from=${$scope.from}&to=${$scope.to}&type=${$scope.type}`,
+              url: `https://busbookingteamomega.herokuapp.com/api/buses/availableBuses?from=${$scope.from}&to=${$scope.to}&type=${$scope.type}`,
              
           })
           .then(function(response){
@@ -31,13 +31,13 @@ myModule.controller('findbusController',function($scope,$http,$compile){
   $scope.bookNow =  function (id) {
     $http({
       method: 'GET',
-      url: `http://127.0.0.1:3000/api/buses/${id}`,
+      url: `https://busbookingteamomega.herokuapp.com/api/buses/${id}`,
     })
     .then(function(response){
       
       $http({
         method: 'GET',
-        url: `http://127.0.0.1:3000/api/bookings/checkout-session/${id}`
+        url: `https://busbookingteamomega.herokuapp.com/api/bookings/checkout-session/${id}`
       }).then(async function(session){
              // 2) Create checkout form + chanre credit card
         try{

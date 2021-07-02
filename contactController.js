@@ -5,7 +5,7 @@ myModule.controller('addContactController',function($scope,$http,$log){
         console.log('hello');
         $scope.user =  $http({
               method: 'POST',
-              url: 'http://127.0.0.1:3000/api/contacts',
+              url: 'https://busbookingteamomega.herokuapp.com/api/contacts',
               data: {
                   name: $scope.name,
                   email: $scope.email,
